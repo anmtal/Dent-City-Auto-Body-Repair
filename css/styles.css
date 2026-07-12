@@ -478,3 +478,35 @@ html { overflow-anchor: none; }                 /* stop scroll-anchoring from ji
 
 /* real-logo tweaks */
 .brand-logo{border-radius:8px!important;}
+
+/* ================= DENT CITY — DARK MODE (logo is red-on-black) ================= */
+:root{
+  --bg:#0B0E15; --bg-2:#10141D; --surface:#161B26; --surface-2:#1E2431;
+  --line:rgba(255,255,255,0.10); --line-2:rgba(255,255,255,0.055);
+  --navy:#F2F4F7; --navy-deep:#070A10; --navy-bright:#EF4444; --navy-soft:#2A1218;
+  --navy-grad:linear-gradient(135deg,#EF4444,#B91C1C);
+  --accent:#F59E0B; --ink:#E7EAF0; --ink-soft:#98A2B0; --white:#fff;
+  --shadow-sm:0 2px 12px rgba(0,0,0,0.45);
+  --shadow-md:0 18px 44px -18px rgba(0,0,0,0.65);
+  --shadow-lg:0 34px 72px -30px rgba(0,0,0,0.75);
+  --shadow-navy:0 16px 32px -12px rgba(239,68,68,0.4);
+}
+body{ background:var(--bg); color:var(--ink); }
+.site-header.scrolled{ background:rgba(11,14,21,0.86); border-bottom-color:var(--line-2); box-shadow:0 6px 26px -18px rgba(0,0,0,0.8); }
+.menu-toggle{ background:var(--navy-bright); }
+::selection{ background:var(--navy-bright); color:#fff; }
+.btn--white{ --bg:#fff; --fg:#B91C1C; }
+.marquee{ background:var(--surface); }
+.hero-photo,.story-media{ border-color:var(--surface-2); }
+.hero-tag{ background:var(--surface); border-color:var(--line); }
+.hero-tag b{ color:var(--ink); } .hero-tag small{ color:var(--ink-soft); }
+.field input,.field textarea,.field select{ background:var(--surface-2); border-color:var(--line); color:var(--ink); }
+.field input::placeholder,.field textarea::placeholder{ color:#68727f; }
+.chip-opt span{ background:var(--surface-2); border-color:var(--line); color:var(--ink); }
+.to-top{ background:var(--surface); color:var(--ink); border-color:var(--line); }
+.price-row .dots{ border-bottom-color:rgba(255,255,255,0.16); }
+.brand-logo{ border-radius:8px; }
+.ambient-gear{ opacity:.16; }
+.fab-cta{ background:var(--navy-bright); }
+.toast{ background:#1E2431; border-left-color:var(--navy-bright); }
+.toast i{ color:var(--navy-bright); }
