@@ -510,3 +510,5 @@ body{ background:var(--bg); color:var(--ink); }
 .fab-cta{ background:var(--navy-bright); }
 .toast{ background:#1E2431; border-left-color:var(--navy-bright); }
 .toast i{ color:var(--navy-bright); }
+
+.brand-logo{ border-radius:0!important; }
