@@ -1,6 +1,6 @@
 /* ============================================================
-   JAY'S HAIR CUT — Beauty & Barber (Burlington, ON)
-   Clean navy & white design system — all pages
+   DENT CITY AUTO BODY REPAIR — Collision & Auto Body (Burlington, ON)
+   Dark theme + signal red design system — all pages
    ============================================================ */
 
 :root {
@@ -132,8 +132,8 @@ body::before {
 .hero { position: relative; padding: clamp(130px, 16vw, 186px) 0 clamp(60px, 8vw, 96px); overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 46px; align-items: center; }
 .hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 100px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; color: var(--navy); box-shadow: var(--shadow-sm); }
-.hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--navy-bright); box-shadow: 0 0 0 4px rgba(37,99,235,0.18); animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100% { box-shadow: 0 0 0 4px rgba(37,99,235,0.2); } 50% { box-shadow: 0 0 0 8px rgba(37,99,235,0); } }
+.hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--navy-bright); box-shadow: 0 0 0 4px rgba(220,38,38,0.18); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 4px rgba(220,38,38,0.2); } 50% { box-shadow: 0 0 0 8px rgba(220,38,38,0); } }
 .hero-title { font-family: var(--font-display); font-weight: 700; color: var(--navy); font-size: clamp(2.8rem, 6.4vw, 5rem); line-height: 1.02; letter-spacing: -0.02em; margin: 22px 0 0; }
 .hero-title em { font-style: normal; color: var(--navy-bright); }
 .hero-sub { margin-top: 22px; max-width: 52ch; font-size: 1.12rem; color: var(--ink-soft); }
@@ -225,7 +225,7 @@ body::before {
 .price-row:last-child { border-bottom: none; }
 .price-row .nm { color: var(--ink); font-weight: 500; }
 .price-row .nm small { display: block; color: var(--ink-soft); font-weight: 400; font-size: 0.82rem; margin-top: 2px; }
-.price-row .dots { flex: 1; border-bottom: 1px dotted rgba(15,23,42,0.25); transform: translateY(-4px); }
+.price-row .dots { flex: 1; border-bottom: 1px dotted rgba(255,255,255,0.22); transform: translateY(-4px); }
 .price-row .pr { font-family: var(--font-display); color: var(--navy-bright); font-weight: 600; font-size: 1.2rem; white-space: nowrap; }
 
 /* ============ TESTIMONIALS ============ */
@@ -345,7 +345,7 @@ body::before {
 .field label .req { color: var(--navy-bright); }
 .field input, .field textarea, .field select { width: 100%; padding: 13px 15px; border-radius: 10px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); transition: border 0.25s, box-shadow 0.25s; }
 .field input::placeholder, .field textarea::placeholder { color: #94A3B8; }
-.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--navy-bright); box-shadow: 0 0 0 4px rgba(37,99,235,0.12); }
+.field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--navy-bright); box-shadow: 0 0 0 4px rgba(220,38,38,0.15); }
 .field textarea { resize: vertical; min-height: 90px; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .hp { position: absolute; left: -9999px; opacity: 0; height: 0; }
@@ -354,7 +354,7 @@ body::before {
 .chip-opt input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
 .chip-opt span { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 100px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); font-weight: 500; font-size: 0.9rem; transition: all 0.25s; cursor: pointer; }
 .chip-opt input:checked + span { background: var(--navy); color: #fff; border-color: var(--navy); }
-.chip-opt input:focus-visible + span { box-shadow: 0 0 0 4px rgba(37,99,235,0.2); }
+.chip-opt input:focus-visible + span { box-shadow: 0 0 0 4px rgba(220,38,38,0.25); }
 .form-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 26px; }
 .form-nav .btn--ghost.hidden { visibility: hidden; }
 .form-success { display: none; text-align: center; padding: 20px 10px; animation: fade 0.5s var(--ease); }
