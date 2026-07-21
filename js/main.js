@@ -1,5 +1,5 @@
 /* ============================================================
-   BAJE AUTO SERVICES — interactions (shared across all pages)
+   DENT CITY AUTO BODY REPAIR — interactions (shared across all pages)
    Feature-detected, so this file runs safely on every page.
    ============================================================ */
 (function () {
@@ -12,7 +12,7 @@
     instagram: "https://www.instagram.com/dentcityautobodyrepair/",
     endpoint: ""
   };
-  window.BAJE = CONFIG;
+  window.DENTCITY = CONFIG;
 
   const $ = (s, c) => (c || document).querySelector(s);
   const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
@@ -141,20 +141,13 @@
     requestAnimationFrame(() => t.classList.add("show"));
     setTimeout(() => { t.classList.remove("show"); setTimeout(() => t.remove(), 400); }, 4200);
   }
-  window.bajeToast = toast;
+  window.dentcityToast = toast;
 
   /* ---- BOOKING FORM ---- */
   const form = $("#quoteForm");
   if (form) {
     const steps = $$(".fstep", form), stepPips = $$(".stepper .st");
     let cur = 0;
-    // [price, minutes]
-    // [starting price, approx minutes] — estimates only
-    const SERVICE = {
-      "Paintless Dent Removal": [90, 60], "Bumper Repair": [250, 180], "Collision Repair": [800, 480],
-      "Panel Replacement": [600, 360], "Painting & Refinishing": [450, 300], "Rust Repair": [300, 240],
-      "Scratch & Scuff Repair": [180, 120], "Detailing & Polish": [120, 90]
-    };
 
     const showStep = (n) => {
       cur = Math.max(0, Math.min(n, steps.length - 1));
@@ -177,14 +170,14 @@
     on($("#fNext"), "click", () => { if (validateStep()) showStep(cur + 1); });
     on($("#fBack"), "click", () => showStep(cur - 1));
 
-    /* live total */
+    /* free-estimate message (body shops quote after inspecting damage) */
     const estOut = $("#estAmount"), estMeta = $("#estMeta");
     const updateEstimate = () => {
       const chosen = $$("input[name=services]:checked", form).map(c => c.value);
-      let total = 0, mins = 0;
-      chosen.forEach(v => { const s = SERVICE[v]; if (s) { total += s[0]; mins += s[1]; } });
-      if (estOut) estOut.textContent = total ? `$${total}` : "$0";
-      if (estMeta) estMeta.textContent = chosen.length ? `${chosen.length} service${chosen.length > 1 ? "s" : ""} · ~${mins} min · from pricing` : "Select your services";
+      if (estOut) estOut.innerHTML = '<i class="fa-solid fa-file-invoice-dollar"></i>';
+      if (estMeta) estMeta.textContent = chosen.length
+        ? `${chosen.length} service${chosen.length > 1 ? "s" : ""} selected · free estimate — we'll get right back to you`
+        : "Select your services — we'll get right back to you";
     };
     $$("input[name=services]", form).forEach(c => on(c, "change", updateEstimate));
     updateEstimate();
@@ -197,7 +190,7 @@
       const data = Object.fromEntries(new FormData(form).entries());
       const services = $$("input[name=services]:checked", form).map(c => c.value).join(", ");
       const lead = {
-        source: "baje-website", name: data.name, phone: data.phone, email: data.email || "",
+        source: "dentcity-website", name: data.name, phone: data.phone, email: data.email || "",
         services, date: data.eventDate || "flexible", time: data.time || "any time",
         message: data.message || "", submittedAt: new Date().toISOString()
       };
@@ -208,10 +201,13 @@
         try { await fetch(CONFIG.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead) }); } catch (_) {}
       }
 
-      const subject = encodeURIComponent(`Appointment request — ${services}`);
+      const subject = encodeURIComponent(`Free estimate request — ${services}`);
+      const vehicle = [data.vehYear, data.vehMake, data.vehModel].filter(Boolean).join(" ");
       const bodyLines = [
-        "Hi Dent City, I'd like to book a service.", "",
-        `Service(s): ${services}`, `Preferred date: ${lead.date}`, `Preferred time: ${lead.time}`, "",
+        "Hi Dent City, I'd like a free estimate.", "",
+        `Vehicle: ${vehicle || "—"}`,
+        `Service(s): ${services}`, `Damage: ${data.issue || "—"}`,
+        `Preferred date: ${lead.date}`, `Preferred time: ${lead.time}`, "",
         `Name: ${lead.name}`, `Phone: ${lead.phone}`, `Email: ${lead.email || "—"}`, "",
         `Notes: ${lead.message || "—"}`
       ];
