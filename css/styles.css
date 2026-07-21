@@ -509,3 +509,6 @@ body{ background:var(--bg); color:var(--ink); }
 .ce-band{ background:linear-gradient(135deg,#241016,#180d11)!important; border-color:rgba(220,38,38,.45)!important; }
 .ce-txt{ color:var(--ink)!important; } .ce-txt b{ color:#fff!important; }
 .section--alt{ background:var(--bg-2); }
+
+/* Apex logo sweep 2026-07-21 — transparent header mark: no rectangular box-shadow/tile */
+.brand-logo{ box-shadow:none !important; border-radius:0 !important; }
